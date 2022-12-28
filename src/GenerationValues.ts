@@ -1,4 +1,4 @@
-export interface fuelData {
+export interface GenerationValues {
     period: string;
     respondent: string;
     "respondent-name": string;

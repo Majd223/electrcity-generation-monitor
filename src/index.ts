@@ -1,7 +1,7 @@
 import { QueryParams } from "./QueryParams";
 import * as fs from "fs";
 import { getDayBeforeTime } from "./time";
-import { generationPercentage } from "./panels";
+import { generationInterchangePercentage, generationPercentage } from "./panels";
 
 function main() {
     const apiKey: string = fs.readFileSync("./api_key.txt", "utf8");
@@ -24,6 +24,7 @@ function main() {
     };
 
     const names: string[] = ["multiple", "generation", "dbysubregion", "interchange"];
-    generationPercentage("PSEI");
+    generationPercentage("PSEI", ["OIL", "WAT", "WND"]);
+    generationInterchangePercentage("PSEI");
 }
 main();

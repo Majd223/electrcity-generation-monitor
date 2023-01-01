@@ -19,7 +19,7 @@ export function stringify(json: QueryParams): string {
     let finalResult = "";
     // Add api_key and frequency and data
     finalResult += `api_key=${json.api_key}&frequency=${json.frequency}`;
-    finalResult += `${stringifyHelper(json.data, "data")}`;
+    if (json.data) finalResult += `${stringifyHelper(json.data, "data")}`;
     // Check if there is facets and add it
     if (json.facets) {
         for (let i = 0; i < json.facets.length; i++) {

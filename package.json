@@ -46,9 +46,6 @@
         "url": "https://github.com"
     },
     "homepage": "https://github.com/#readme",
-    "dependencies": {
-        "chalk": "^5.2.0"
-    },
     "devDependencies": {
         "@microsoft/api-documenter": "^7.19.23",
         "@microsoft/api-extractor": "^7.33.5",
@@ -61,6 +58,7 @@
         "prettier": "^2.7.1",
         "ts-jest": "^28.0.5",
         "ts-node": "^10.8.1",
-        "typescript": "^4.8.4"
+        "typescript": "^4.8.4",
+        "chalk": "^4.1.2"
     }
 }

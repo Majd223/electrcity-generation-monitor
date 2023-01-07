@@ -3,13 +3,12 @@ import * as fs from "fs";
 import { getDayBeforeTime } from "./time";
 import { processData } from "./processData";
 import { GenerationValues } from "./GenerationValues";
-import * as color from "./coloring";
 import chalk from "chalk";
 
 const apiKey: string = fs.readFileSync("./api_key.txt", "utf8");
 
 function generationPercentageCalculator(values: GenerationValues[]): void {
-    let total = values.reduce((sum, current) => sum + current.value, 0);
+    const total = values.reduce((sum, current) => sum + current.value, 0);
     // is it an interchange object?
     const toBaName = values[0]["toba-name"] ? values[0]["toba-name"] : values[0]["respondent-name"];
     console.log(`Net generation for ${chalk.green(toBaName)}:`);
@@ -93,7 +92,7 @@ export async function generationInterchangePercentage(
     // There will be only one latest interchange value
     const interchange = (await processData("multiple", interchangeQueryParams))[0];
     // Value is sometimes negative
-    interchange.value = interchange.value;
+    interchange.value = Math.abs(interchange.value);
     generationData.push(interchange);
     if (!reuse) generationPercentageCalculator(generationData);
     return generationData;

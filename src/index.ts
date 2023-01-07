@@ -27,7 +27,6 @@ function main() {
         length: "5000",
     };
 
-    const names: string[] = ["multiple", "generation", "dbysubregion", "interchange"];
     generationPercentage("CAL");
     generationInterchangePercentage("PSEI");
     interchangeRecvDetailsPercentage("PSEI");

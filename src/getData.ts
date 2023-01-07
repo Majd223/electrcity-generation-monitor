@@ -40,6 +40,11 @@ export async function getData(dataType: string, searchParams: QueryParams): Prom
         const data = await response.json();
         // shift + alt + f to make vs code format your json file
         const dataString: string = JSON.stringify(data);
+        // Check if the data folder is created, if not then create it
+        const dir = "./data";
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir);
+        }
         // Write the data to a file to visualize it
         fs.writeFileSync(`./data/${fileName}`, dataString);
         return dataString;

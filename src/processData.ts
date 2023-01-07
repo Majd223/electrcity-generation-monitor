@@ -11,7 +11,7 @@ export async function processData(
     // Define the reviver function
     const fullData = JSON.parse(dataString);
     const data = fullData.response;
-    let values: GenerationValues[] = [];
+    const values: GenerationValues[] = [];
     if (data.total !== 0) {
         // Grab the latest data you can find form the top item since latest is shown first.
         // Or take a function input and use that
